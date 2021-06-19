@@ -1,0 +1,25 @@
+<h2>Bienvenido</h2>
+<br>
+<h3>Número de parroquias {{ numero_parroquias }}</h3>
+
+<ul>
+  {% for e in parroquias %}
+
+  <li>
+    {{e}} - [<a href="{% url 'editar_parroquia' e.id %}">editar</a>]
+    <ul>
+      {% for t in e.lasparroquias.all %}
+      <li>
+        <span>{{t.nombre}} - Num.viviendas: {{t.numViviendas}} - Num.parques: {{t.numParques}} - Num.Edificios:
+          {{t.numEdif}} - [<a href="{% url 'editar_barrio' t.id %}">editar</a>] </span>
+      </li>
+      {% endfor %}
+    </ul>
+    [<a href="{% url 'crearBarrioParr' e.id%}">+Barrio</a>]
+  </li>
+  <hr />
+
+  {% endfor %}
+</ul>
+
+<a href="{% url 'crear_Parroquia' %}">agregar Parroquia</a>

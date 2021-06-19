@@ -1,0 +1,14 @@
+<h2>Bienvenido</h2>
+
+<h3>Número de barrios: {{ numero_barrios }}</h3>
+
+<ul>
+    {% for e in barrios %}
+   
+     <li>
+        {{e.nombre}} - Num.viviendas: {{e.numViviendas}} - Num.parques: {{e.numParques}} - Num.Edificios: {{e.numEdif}} - {{e.parroquia}} 
+     </li>
+     <hr />
+   
+   {% endfor %} 
+</ul>
